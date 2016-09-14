@@ -1,0 +1,48 @@
+{
+  "name": "throttled-event-listener",
+  "version": "0.0.3",
+  "description": "Throttle or debounce calls to window.addEventListener(). The listener will additionally be throttled by window.requestAnimationFrame().",
+  "keywords": [
+    "throttle",
+    "debounce",
+    "interval",
+    "requestAnimationFrame",
+    "addEventListener",
+    "listener",
+    "animation",
+    "callback"
+  ],
+  "homepage": "https://vivmaha.github.io/throttled-event-listener",
+  "main": "src/modules/throttled-event-listener",
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "^1.4.9",
+    "angular-route": "^1.4.9",
+    "autoprefixer": "^6.3.1",
+    "babelify": "^7.3.0",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-connect": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-jscs": "^3.0.1",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^1.1.0",
+    "grunt-sass-lint": "^0.2.0"
+  },
+  "author": {
+    "name": "Vivek Maharajh",
+    "email": "vivmaha@live.com"
+  },
+  "files": [
+    "src/modules/throttled-event-listener.js"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivmaha/throttled-event-listener.git"
+  }
+}
