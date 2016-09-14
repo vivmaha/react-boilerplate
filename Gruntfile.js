@@ -3,8 +3,11 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         browserify: {
             dist: {
+                options: {
+                    transform: [['babelify', {presets: ['react']}]]
+                }, 
                 files: {
-                    'build/module.js': ['src/**/*.js']
+                    'build/bundle.js': ['src/**/*.js']
                 }
             }
         },
@@ -36,17 +39,6 @@ module.exports = function (grunt) {
                     dest: 'build/'
                 }]
             },
-            node: {
-                files: [{
-                    expand: true,
-                    cwd: 'node_modules',
-                    src: [
-                        'angular/angular.js',
-                        'angular-route/angular-route.js',
-                    ],
-                    dest: 'build/node_modules'
-                }]
-            }
         },
         jscs: {
             src: 'src/**/*.js',
@@ -124,8 +116,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('serve', [
         'build',
-        'connect',        
-        'lint',
+        'connect',
         'watch',        
     ])
 };
