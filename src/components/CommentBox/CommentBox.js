@@ -31,3 +31,7 @@ export default class CommentBox extends React.Component {
       );
     }
 }
+CommentBox.propTypes={
+  saveCommentToServer: React.PropTypes.func.isRequired,
+  loadCommentsFromServer: React.PropTypes.func.isRequired,
+}

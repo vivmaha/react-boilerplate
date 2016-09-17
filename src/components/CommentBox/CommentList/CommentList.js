@@ -5,9 +5,10 @@ export default class CommentList extends React.Component {
     render() {
       var commentNodes = this.props.data.map(function(comment){
         return (
-          <Comment author={comment.author} key={comment.id}>
-            {comment.text}
-          </Comment>
+          <Comment 
+            data={comment}
+            key={comment.id}
+          />          
         )
       });
       return (
@@ -17,3 +18,11 @@ export default class CommentList extends React.Component {
       );
     }
 }
+CommentList.propTypes = { 
+  data: React.PropTypes.arrayOf(
+    React.PropTypes.shape({
+      author: React.PropTypes.string.isRequired,
+      text: React.PropTypes.string.isRequired,
+    }).isRequired
+  ),
+};
