@@ -7,7 +7,7 @@ module.exports = function (grunt) {
                     transform: [['babelify', {presets: ['es2015', 'react']}]]
                 }, 
                 files: {
-                    'build/bundle.js': ['src/**/*.js']
+                    'dist/bundle.js': ['src/**/*.js']
                 }
             }
         },
@@ -15,15 +15,15 @@ module.exports = function (grunt) {
             server: {
                 options: {
                     port: 9001,
-                    base: './build',
+                    base: './dist',
                     livereload: true,
                     hostname: 'localhost',
                 },
             },
         },
         clean: {
-            build: {
-                src: ["build/"]
+            dist: {
+                src: ["dist/"]
             }
         },
         copy: {
@@ -36,7 +36,7 @@ module.exports = function (grunt) {
                         '!**.scss',
                         '!**.js',
                     ],
-                    dest: 'build/'
+                    dest: 'dist/'
                 }]
             },
         },
@@ -58,13 +58,13 @@ module.exports = function (grunt) {
                 ]
             },
             dist: {
-                src: 'build/index.css'
+                src: 'dist/index.css'
             }
         },
         sass: {
             dist: {
                 files: {
-                    'build/index.css': 'src/index.scss',
+                    'dist/index.css': 'src/index.scss',
                 },
             },
         },
