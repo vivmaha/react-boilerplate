@@ -1,8 +1,20 @@
-import React from 'react';
-import CommentForm from './CommentForm/CommentForm.js';
-import CommentList from './CommentList/CommentList.js';
+/// <reference path="../../../typings/index.d.ts"/>
 
-export default class CommentBox extends React.Component {
+import * as React from 'react'
+import Comment from '../../models/comment.ts'
+import CommentForm from './CommentForm/CommentForm.tsx'
+import CommentList from './CommentList/CommentList.tsx'
+
+interface Props {
+  loadCommentsFromServer: () => Comment[];
+  saveCommentToServer: (Comment) => void;
+}
+
+interface State {
+  data: Comment[];
+}
+
+export default class CommentBox extends React.Component<Props, State> {
     constructor(props, context) {
         super(props, context);
         this.state = { data: []};         
@@ -30,8 +42,4 @@ export default class CommentBox extends React.Component {
         </div>
       );
     }
-}
-CommentBox.propTypes={
-  saveCommentToServer: React.PropTypes.func.isRequired,
-  loadCommentsFromServer: React.PropTypes.func.isRequired,
 }

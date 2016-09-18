@@ -1,18 +1,25 @@
-import React from 'react';
+import * as React from 'react'
+import Comment from '../../../models/comment.ts';
 
-export default class CommentForm extends React.Component {
+
+interface Props{
+  submitComment: (Comment) => void; 
+}
+
+interface State {
+  author?: string;
+  text?: string;
+}
+
+export default class CommentForm extends React.Component<Props, State> {
 
     constructor(props, context) {
         super(props, context);
         this.state = {author:'', text:''};
 
-        var bindHelper = (handler) => {
-          this[handler.name] = this[handler.name].bind(this);
-        };
-
-        bindHelper(this.handleAuthorChange);
-        bindHelper(this.handleTextChange);
-        bindHelper(this.handleSubmit);
+        this.handleAuthorChange = this.handleAuthorChange.bind(this);
+        this.handleTextChange = this.handleTextChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleAuthorChange(e) {

@@ -1,5 +1,5 @@
 {
-  "name": "react-boilerplate",
+  "name": "react-boilerplate",  
   "version": "0.0.1",
   "description": "My boilerplate react project for quickly creating other projects",
   "dependencies": {},
@@ -14,14 +14,13 @@
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-connect": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-jscs": "^3.0.1",
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "^1.1.0",
     "grunt-sass-lint": "^0.2.0",
     "react": "^15.3.1",
-    "react-dom": "^15.3.1"
+    "react-dom": "^15.3.1",
+    "tsify": "^1.0.7"
   },
   "author": {
     "name": "Vivek Maharajh",

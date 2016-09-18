@@ -1,13 +1,16 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        browserify: {
+        browserify: {            
             dist: {
+                src: ["./src/main.tsx"],
+                dest: "dist/bundle.js",
                 options: {
-                    transform: [['babelify', {presets: ['es2015', 'react']}]]
-                }, 
-                files: {
-                    'dist/bundle.js': ['src/**/*.js']
+                    browserifyOptions: {
+                        plugin: [
+                            ['tsify', {extensions: 'jsx'}]
+                        ]
+                    }
                 }
             }
         },
@@ -34,22 +37,11 @@ module.exports = function (grunt) {
                     src: [
                         '**',
                         '!**.scss',
-                        '!**.js',
+                        '!**.tsx',
                     ],
                     dest: 'dist/'
                 }]
             },
-        },
-        jscs: {
-            src: 'src/**/*.js',
-            options: {
-                preset: 'airbnb', 
-                fix: true, // Autofix code style violations when possible.
-                validateLineBreaks: "CRLF"
-            }
-        },
-        jshint: {
-            all: ['src/**/*.js'],
         },
         postcss: {
             options: {
@@ -93,9 +85,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-jscs');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-sass-lint');
@@ -109,8 +99,6 @@ module.exports = function (grunt) {
     ])
 
     grunt.registerTask('lint', [
-        'jshint',        
-        'jscs',
         'sasslint',
     ])
 
