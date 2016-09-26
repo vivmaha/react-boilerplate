@@ -22,7 +22,8 @@
     "grunt-sass-lint": "^0.2.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
-    "tsify": "^1.0.7"
+    "tsify": "^1.0.7",
+    "typescript": "^2.0.3"
   },
   "author": {
     "name": "Vivek Maharajh",
